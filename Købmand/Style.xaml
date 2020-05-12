@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Købmand">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type Border}" x:Key="BlackBorder">
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="BlueBorder">
+        <Setter Property="BorderThickness" Value="10"/>
+        <Setter Property="BorderBrush" Value="Blue"/>
+    </Style>
+
+    <Style TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="Background" Value="LightBlue" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+</ResourceDictionary>

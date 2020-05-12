@@ -1,0 +1,75 @@
+﻿<Window x:Class="Købmand.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Købmand"
+        mc:Ignorable="d"
+        Title="Købmand" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Style="{StaticResource BlackBorder}">
+                <Label Content="{Binding Navn}" Name="Navnholder" FontSize="20" HorizontalAlignment="Left" Margin="180,0,0,0" VerticalAlignment="Center"/>
+            </Border>
+            <Label Content="Nuværende By:" FontSize="20" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Center"/>
+            <Border Grid.Column="1" Style="{StaticResource BlackBorder}">
+                <Label Content="{Binding Penge}" Name="Pengeholder" FontSize="20" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center"/>
+            </Border>
+            <Label Content="Penge:" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Style="{StaticResource BlackBorder}"/>
+            <Border Style="{StaticResource BlueBorder}" Grid.Column="1"/>
+            <Label Content="Vælg en by du vil besøge" FontSize="15" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top"/>
+            <Button Content="Odense" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Height="41" Width="134" Click="Button_Click_Odense"/>
+            <Button Content="Esbjerg" HorizontalAlignment="Center" Margin="0,135,0,0" VerticalAlignment="Top" Height="38" Width="134" Click="Button_Click_Esbjerg"/>
+            <Button Content="Skagen" HorizontalAlignment="Center" VerticalAlignment="Top" Height="36" Width="134" Margin="0,187,0,0" Click="Button_Click_Skagen"/>
+            <Button Content="Koebenhavn" HorizontalAlignment="Center" Margin="0,239,0,0" VerticalAlignment="Top" Height="37" Width="134" Click="Button_Click_Koebenhavn"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ListView Name="Sælger" Grid.Column="0" Margin="10,0,1,10" Grid.Row="1" SelectedItem="{Binding SelectedCity }" ItemsSource="{Binding ByVarer }" SelectionChanged="OnCityChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Vare" Width="50" DisplayMemberBinding="{Binding VareNavn}"/>
+                            <GridViewColumn Header="Antal" Width="50" DisplayMemberBinding="{Binding AntalVare}"/>
+                            <GridViewColumn Header="Pris" Width="70"  DisplayMemberBinding="{Binding Pris}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <ListView Name="Player" Grid.Column="1" Margin="1,0,10,10" Grid.Row="1">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Vare" Width="50"/>
+                            <GridViewColumn Header="Antal" Width="50" />
+                            <GridViewColumn Header="Pris" Width="70"  />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Label Content="Sælgerens Inventar" FontSize="15" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,0.635" Grid.Row="0" Grid.Column="0"/>
+                <Label Content="Dit Inventar" FontSize="15" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,0.501" Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>
