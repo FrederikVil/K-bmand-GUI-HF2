@@ -48,12 +48,13 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <ListView Name="Sælger" Grid.Column="0" Margin="10,0,1,10" Grid.Row="1" SelectedItem="{Binding SelectedCity }" ItemsSource="{Binding ByVarer }" SelectionChanged="OnCityChanged">
+                <ListView Name="Sælger" Grid.Column="0" Margin="10,0,1,10" Grid.Row="1" SelectedItem="{Binding SelectedItems }" ItemsSource="{Binding ByVarer }" SelectionChanged="OnCityChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Vare" Width="50" DisplayMemberBinding="{Binding VareNavn}"/>
                             <GridViewColumn Header="Antal" Width="50" DisplayMemberBinding="{Binding AntalVare}"/>
                             <GridViewColumn Header="Pris" Width="70"  DisplayMemberBinding="{Binding Pris}"/>
+                            <GridViewColumn Header="Køb" Width="100"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

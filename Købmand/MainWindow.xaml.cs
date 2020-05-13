@@ -30,7 +30,7 @@ namespace Købmand
 
         public void OnCityChanged(object sender, SelectionChangedEventArgs args)
         {
-            NuværendeBy.SelectedCity = Sælger.SelectedItem as Varer;
+            NuværendeBy.SelectedItems = Sælger.SelectedItem as Varer;
         }
 
         public MainWindow()
@@ -45,7 +45,7 @@ namespace Købmand
         {
             NuværendeBy = Odense;
             Navnholder.DataContext = NuværendeBy;
-            NuværendeBy.SelectedCity = Odense.ByVarer[0];
+            NuværendeBy.SelectedItems = Odense.ByVarer[0];
             Sælger.DataContext = NuværendeBy;
         }
 
@@ -53,18 +53,24 @@ namespace Købmand
         {
             NuværendeBy = Esbjerg;
             Navnholder.DataContext = NuværendeBy;
+            NuværendeBy.SelectedItems = Esbjerg.ByVarer[0];
+            Sælger.DataContext = NuværendeBy;
         }
 
         private void Button_Click_Skagen(object sender, RoutedEventArgs e)
         {
             NuværendeBy = Skagen;
             Navnholder.DataContext = NuværendeBy;
+            NuværendeBy.SelectedItems = Skagen.ByVarer[0];
+            Sælger.DataContext = NuværendeBy;
         }
 
         private void Button_Click_Koebenhavn(object sender, RoutedEventArgs e)
         {
             NuværendeBy = Koebenhavn;
             Navnholder.DataContext = NuværendeBy;
+            NuværendeBy.SelectedItems = Koebenhavn.ByVarer[0];
+            Sælger.DataContext = NuværendeBy;
         }
     }
 }
